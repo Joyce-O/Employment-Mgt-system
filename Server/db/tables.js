@@ -42,13 +42,13 @@ const admin_table = `DROP TABLE IF EXISTS admin CASCADE;
 )`;
 
 
-const bank_table_sql = 'insert into bank_table (name, bank_address) values ($1, $2)';
+const bank_table_sql = 'insert into banks (name, bank_address) values ($1, $2)';
 
 // const variables = ['UBA', '12 goland'];
 
-const company_table_sql = 'insert into bank_table (name, company_address) values ($1, $2)';
+const company_table_sql = 'insert into companies (name, company_address) values ($1, $2)';
 
-const admin_table_sql = 'insert into bank_table (name, password, email) values ($1, $2, $3)';
+const admin_table_sql = 'insert into admin (name, password, email) values ($1, $2, $3)';
 
 // const variables = ['Beaulab', '12 goland'];
 
@@ -74,9 +74,9 @@ async function createTables() {
       console.log('employee table not created');
     }
 
-    const admin = await pool.query(admin_table);
+    const admins = await pool.query(admin_table);
     try {
-      console.log('admin table created', admin);
+      console.log('admin table created', admins);
     } catch (error) {
       console.log('admin table not created');
     }
